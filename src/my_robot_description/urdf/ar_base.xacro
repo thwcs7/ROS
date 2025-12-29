@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="ar"
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.14159" />
+    <xacro:property name="effort" value="1000.0" />
+    <xacro:property name="velocity" value="10.0" />
+
+    <link name = "world"/>
+
+    <link name="Base">
+        <visual>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/base_link.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <joint name = "Base_joint" type ="fixed">
+        <parent link = "world"/>
+        <child link = "Base"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="Arm_link1">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_1.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint1" type="revolute">
+        <origin rpy="${PI} 0 0" xyz="0 0 0"/>
+        <parent link="Base"/>
+        <child link="Arm_link1"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-${17*PI/18}" upper="${17*PI/18}" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+    <link name="Arm_link2">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_2.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint2" type="revolute">
+        <origin rpy="${PI/2} 0 -${PI/2}" xyz="0 0.0642 -0.16977"/>
+        <parent link="Arm_link1"/>
+        <child link="Arm_link2"/>
+        <axis xyz="0 0 -1"/>
+        <limit lower="-${PI/4}" upper="${PI/2}" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+    <link name="Arm_link3">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_3.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint3" type="revolute">
+        <origin rpy="0 0 ${PI}" xyz="0 -0.305 0.007"/>
+        <parent link="Arm_link2"/>
+        <child link="Arm_link3"/>
+        <axis xyz="0 0 -1"/>
+        <limit lower="-${PI/2}" upper="${13*PI/45}" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+    <link name="Arm_link4">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_4.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint4" type="revolute">
+        <origin rpy="${PI/2} 0 -${PI/2}" xyz="0 0 0.0"/>
+        <parent link="Arm_link3"/>
+        <child link="Arm_link4"/>
+        <axis xyz="0 0 -1"/>
+        <limit lower="-${PI}" upper="${PI}" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+    <link name="Arm_link5">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_5.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint5" type="revolute">
+        <origin rpy="${PI} 0 -${PI/2}" xyz="0 0 -0.22263"/>
+        <parent link="Arm_link4"/>
+        <child link="Arm_link5"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.832595715" upper="1.832595715" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+    <link name="Arm_endlink">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/link_6.STL"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="Arm_joint6" type="revolute">
+        <origin rpy="0 0 ${PI}" xyz="0.000 0 0.041"/>
+        <parent link="Arm_link5"/>
+        <child link="Arm_endlink"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-${PI}" upper="${PI}" effort="${effort}" velocity="${velocity}" />
+    </joint>
+
+  <!-- center of the end effector mounting surface on link_6 -->
+    <link name="Arm_eelink" />
+    <joint name="Arm_eejoint" type="fixed">
+        <parent link="Arm_endlink" />
+        <child link="Arm_eelink" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+</robot>
