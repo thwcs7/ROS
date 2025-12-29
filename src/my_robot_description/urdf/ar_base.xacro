@@ -12,10 +12,17 @@
     <link name="Base">
         <visual>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/base_link.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/base_link.STL"/>
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </visual>
+
+        <collision>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/base_link.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
     </link>
 
     <joint name = "Base_joint" type ="fixed">
@@ -28,9 +35,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_1.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_1.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_1.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint1" type="revolute">
@@ -45,9 +59,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_2.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_2.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_2.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint2" type="revolute">
@@ -62,9 +83,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_3.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_3.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_3.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint3" type="revolute">
@@ -79,9 +107,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_4.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_4.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_4.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint4" type="revolute">
@@ -96,9 +131,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_5.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_5.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_5.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint5" type="revolute">
@@ -113,9 +155,16 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://my_robot_description/meshes/link_6.STL"/>
+                <mesh filename="package://my_robot_description/meshes/visuals/link_6.STL"/>
             </geometry>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://my_robot_description/meshes/collisions/link_6.STL"/>
+            </geometry>
+        </collision>
     </link>
 
     <joint name="Arm_joint6" type="revolute">
