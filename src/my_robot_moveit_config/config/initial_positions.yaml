@@ -1,0 +1,9 @@
+# Default initial positions for ar's ros2_control fake system
+
+initial_positions:
+  Arm_joint1: 0
+  Arm_joint2: 0
+  Arm_joint3: 0
+  Arm_joint4: 0
+  Arm_joint5: 0
+  Arm_joint6: 0

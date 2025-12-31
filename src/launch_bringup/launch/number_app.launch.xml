@@ -1,0 +1,12 @@
+<launch>
+    <node pkg="my_cpp_pkg" exec="minimal_publisher" name="my_node_publisher" />
+
+    
+    <node pkg="my_cpp_pkg" exec="number_publisher" name="my_number_publisher" namespace="/xyz">
+        <remap from="number" to="my_number" />
+
+        <!-- <param name="number" value="7" />
+        <param name="timer_period" value="5.5" /> -->
+        <param from="$(find-pkg-share launch_bringup)/config/number_app.yaml"/>
+    </node>
+</launch>

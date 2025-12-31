@@ -1,0 +1,19 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+
+  arm_controller:
+    type: FollowJointTrajectory
+    joints:
+      - Arm_joint1
+      - Arm_joint2
+      - Arm_joint3
+      - Arm_joint4
+      - Arm_joint5
+      - Arm_joint6
+    action_ns: follow_joint_trajectory
+    default: true
